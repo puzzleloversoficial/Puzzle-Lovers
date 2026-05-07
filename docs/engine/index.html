@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Puzzle Engine: editor visual y reproductor interactivo para Neo Puzzle Lovers."
+  >
+  <title>Puzzle Engine · Neo Puzzle Lovers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="engine-bg" aria-hidden="true">
+    <div class="engine-blob engine-blob-a"></div>
+    <div class="engine-blob engine-blob-b"></div>
+    <div class="engine-grid"></div>
+  </div>
+
+  <div class="engine-shell">
+    <header class="engine-topbar">
+      <div class="engine-brand">
+        <a href="../index.html" class="back-link">← Volver a la web</a>
+        <div class="engine-brand-main">
+          <img src="../assets/logo-neo-puzzle-lovers-cropped.png" alt="Neo Puzzle Lovers" class="engine-brand-logo">
+          <div class="engine-brand-copy">
+            <span class="engine-brand-mini">Editor + Player</span>
+            <h1>Puzzle Engine</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="engine-topbar-status">
+        <span class="status-pill" id="storage-mode-pill">Modo local</span>
+        <span class="status-copy" id="storage-mode-copy">Sin Supabase configurado todavía.</span>
+      </div>
+    </header>
+
+    <main class="engine-layout">
+      <section class="engine-main">
+        <div class="mode-switch" role="tablist" aria-label="Cambiar entre editor y reproductor">
+          <button class="mode-switch-btn active" data-tab-target="editor-panel" type="button">Editor visual</button>
+          <button class="mode-switch-btn" data-tab-target="player-panel" type="button">Reproductor</button>
+        </div>
+
+        <section class="tab-panel active" id="editor-panel" role="tabpanel" aria-label="Editor visual">
+          <div class="panel-card panel-card-header">
+            <div>
+              <p class="card-kicker">Creación</p>
+              <h2>Construye una actividad</h2>
+              <p>
+                Define el reto, añade preguntas, decide la respuesta correcta y elige si cada tarjeta
+                lleva YouTube o audio MP3.
+              </p>
+            </div>
+            <div class="panel-card-meta">
+              <span class="meta-chip">ID único</span>
+              <span class="meta-chip">Multimedia</span>
+              <span class="meta-chip">Ranking ready</span>
+            </div>
+          </div>
+
+          <form id="editor-form" class="panel-card editor-form">
+            <div class="editor-grid">
+              <label class="field">
+                <span>Título del desafío</span>
+                <input id="activity-title" name="title" type="text" placeholder="Ej: Funkin' Battle Quiz">
+              </label>
+
+              <label class="field">
+                <span>Categoría</span>
+                <input id="activity-category" name="category" type="text" placeholder="Ej: Friday Night Funkin'">
+              </label>
+
+              <label class="field">
+                <span>Vidas iniciales</span>
+                <input id="activity-lives" name="lives" type="number" min="1" max="9" value="3">
+              </label>
+
+              <label class="field">
+                <span>Tiempo por pregunta (segundos)</span>
+                <input id="activity-timer" name="timePerQuestion" type="number" min="5" max="180" value="30">
+              </label>
+            </div>
+
+            <label class="field field-full">
+              <span>Descripción breve</span>
+              <textarea id="activity-description" name="description" rows="3" placeholder="Una línea corta que explique el mood del reto."></textarea>
+            </label>
+
+            <div class="editor-toolbar">
+              <button class="ghost-btn" id="add-question-btn" type="button">+ Añadir pregunta</button>
+              <button class="ghost-btn" id="load-demo-btn" type="button">Cargar demo</button>
+              <button class="ghost-btn" id="reset-editor-btn" type="button">Limpiar editor</button>
+              <button class="primary-btn" id="save-activity-btn" type="submit">Guardar actividad</button>
+            </div>
+
+            <div id="editor-status" class="inline-status" aria-live="polite"></div>
+
+            <div id="question-list" class="question-list"></div>
+          </form>
+        </section>
+
+        <section class="tab-panel" id="player-panel" role="tabpanel" aria-label="Reproductor interactivo">
+          <div class="panel-card panel-card-header">
+            <div>
+              <p class="card-kicker">Playback</p>
+              <h2>Prueba la actividad como jugador</h2>
+              <p>
+                Carga una actividad por ID, juega con temporizador y vidas, y envía el puntaje al ranking global de ese juego.
+              </p>
+            </div>
+          </div>
+
+          <div class="panel-card player-loader">
+            <div class="player-loader-grid">
+              <label class="field field-grow">
+                <span>ID de actividad</span>
+                <input id="player-activity-id" type="text" placeholder="Pega aquí el ID único">
+              </label>
+              <button class="primary-btn" id="load-activity-btn" type="button">Cargar actividad</button>
+              <button class="ghost-btn" id="load-last-activity-btn" type="button">Usar última guardada</button>
+            </div>
+            <div id="player-load-status" class="inline-status" aria-live="polite"></div>
+          </div>
+
+          <div id="player-stage" class="panel-card player-stage">
+            <div class="player-empty">
+              <h3>Listo para jugar</h3>
+              <p>Cuando cargues una actividad, el motor generará aquí toda la interfaz interactiva.</p>
+            </div>
+          </div>
+
+          <div id="leaderboard-panel" class="panel-card leaderboard-panel">
+            <div class="leaderboard-header">
+              <div>
+                <p class="card-kicker">Ranking</p>
+                <h3>Tabla de líderes</h3>
+              </div>
+              <span class="leaderboard-subcopy" id="leaderboard-subcopy">Todavía no hay actividad cargada.</span>
+            </div>
+            <div id="leaderboard-list" class="leaderboard-list">
+              <p class="leaderboard-empty">Carga una actividad para ver o registrar posiciones.</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="engine-sidebar">
+        <section class="panel-card side-card">
+          <p class="card-kicker">Publicación</p>
+          <h3>Salida lista para la web</h3>
+          <div class="output-block">
+            <span class="output-label">ID actual</span>
+            <code id="activity-id-output">Aún no guardado</code>
+          </div>
+          <div class="output-block">
+            <span class="output-label">Enlace del reproductor</span>
+            <code id="activity-link-output">Se generará al guardar una actividad.</code>
+          </div>
+          <button class="ghost-btn" id="copy-activity-link-btn" type="button">Copiar enlace</button>
+        </section>
+
+        <section class="panel-card side-card">
+          <p class="card-kicker">Estado</p>
+          <h3>Modo de almacenamiento</h3>
+          <p id="storage-mode-detail">
+            Las credenciales públicas ya quedaron cargadas en `config.js`. Lo único que falta es
+            ejecutar el esquema SQL en tu proyecto para crear tablas, políticas y bucket.
+          </p>
+          <a class="text-link" href="supabase-schema.sql">Abrir esquema SQL</a>
+        </section>
+
+        <section class="panel-card side-card">
+          <p class="card-kicker">JSON preview</p>
+          <h3>Vista rápida del payload</h3>
+          <pre id="json-preview" class="json-preview">Empieza a editar una actividad para ver el JSON aquí.</pre>
+        </section>
+
+        <section class="panel-card side-card">
+          <p class="card-kicker">Setup rápido</p>
+          <h3>Siguiente paso en Supabase</h3>
+          <ol class="setup-list">
+            <li>Abre el SQL Editor de tu proyecto y ejecuta `supabase-schema.sql`.</li>
+            <li>Crea o guarda una actividad desde el editor visual.</li>
+            <li>Usa `?activity=ID` para publicar o abrir un reto específico.</li>
+          </ol>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

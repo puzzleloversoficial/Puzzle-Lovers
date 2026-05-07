@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Puzzle Lovers es un equipo multifandom dedicado a quizzes, trivias, sopas de letras, laberintos y retos para fans de videojuegos, series y películas."
+  >
+  <title>Puzzle Lovers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="site-bg" aria-hidden="true">
+    <canvas class="starfield" id="starfield"></canvas>
+    <div class="bg-orb bg-orb-a"></div>
+    <div class="bg-orb bg-orb-b"></div>
+    <div class="bg-orb bg-orb-c"></div>
+    <div class="bg-grid"></div>
+    <div class="ambient-particles" id="ambient-particles"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+  </div>
+
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Principal">
+      <a class="nav-logo" href="#hero" aria-label="Ir al inicio de Puzzle Lovers">
+        <img
+          class="nav-logo-image"
+          src="assets/logo-neo-puzzle-lovers-cropped.png"
+          alt="Logo Puzzle Lovers"
+        >
+        <span class="nav-logo-copy">
+          <span class="nav-logo-eyebrow">Puzzle Lovers Team</span>
+          <span class="nav-logo-text">PUZZLE LOVERS</span>
+        </span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Abrir menú"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="primary-nav">
+        <li><a href="#quehacemos">¿Qué hacemos?</a></li>
+        <li><a href="#fandoms">Fandoms</a></li>
+        <li><a href="#equipo">El equipo</a></li>
+        <li><a href="#trabajos">Trabajos</a></li>
+        <li><a href="#puzzle-engine">Puzzle Engine</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-spark hero-spark-a" aria-hidden="true"></div>
+      <div class="hero-spark hero-spark-b" aria-hidden="true"></div>
+
+      <div class="hero-content reveal">
+        <div class="hero-kicker">Team multifandom</div>
+
+        <div class="logo-wrap" id="hero-logo-wrap">
+          <div class="logo-ring logo-ring-a" aria-hidden="true"></div>
+          <div class="logo-ring logo-ring-b" aria-hidden="true"></div>
+          <img
+            id="hero-logo"
+            class="hero-logo"
+            src="assets/logo-neo-puzzle-lovers-cropped.png"
+            alt="Logo Puzzle Lovers"
+          >
+        </div>
+
+        <h1 class="hero-title">PUZZLE LOVERS</h1>
+        <p class="hero-subtitle">La misma vibra multifandom de siempre, ahora con el nuevo logo.</p>
+
+        <div class="hero-text-box">
+          <p class="typewriter-line">Hey tú. Sí, tú.</p>
+          <p>
+            ¿Te has preguntado qué tanto sabes de tus intereses favoritos?<br>
+            No te preocupes, <strong>tenemos la solución indicada para ti.</strong><br>
+            Trivias, sopas de letras, laberintos, quizzes y más...<br>
+            ¡De los fandoms que más amamos!
+          </p>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#quehacemos" class="btn-primary">¡Descúbrenos!</a>
+          <a href="engine/index.html" class="btn-secondary">Abrir Puzzle Engine</a>
+        </div>
+
+        <ul class="hero-pills" aria-label="Áreas del team">
+          <li>🧩 Quizzes</li>
+          <li>🎮 Videojuegos</li>
+          <li>🎵 Series y fandoms</li>
+          <li>🏆 Retos y concursos</li>
+        </ul>
+
+        <a class="scroll-cue" href="#quehacemos">
+          <span>Explora el universo Puzzle Lovers</span>
+          <span class="scroll-cue-arrow">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="signal-strip reveal" aria-label="Señas de identidad del proyecto">
+          <article class="signal-card">
+            <span class="signal-value">Logo nuevo</span>
+            <span class="signal-label">La misma esencia Puzzle Lovers, solo adaptada al nuevo emblema.</span>
+          </article>
+      <article class="signal-card">
+        <span class="signal-value">4</span>
+        <span class="signal-label">miembros actuales sosteniendo el team.</span>
+      </article>
+      <article class="signal-card">
+        <span class="signal-value">∞</span>
+        <span class="signal-label">ideas, retos y preguntas por crear.</span>
+      </article>
+    </section>
+
+    <section id="quehacemos" class="content-section content-section-alt reveal" aria-labelledby="quehacemos-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="quehacemos-title">¿QUÉ HACEMOS?</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">
+          Puzzle Lovers es un equipo multifandom de creación de contenido enfocado en quizzes, trivias,
+          sopas de letras, laberintos y concursos basados en media popular como videojuegos, series y películas.
+        </p>
+
+        <div class="activities-grid">
+          <article class="activity-card">
+            <span class="activity-icon">🧩</span>
+            <h3>Quizzes</h3>
+            <p>Preguntas desafiantes sobre lore, personajes, eventos y más de tus fandoms favoritos.</p>
+          </article>
+          <article class="activity-card">
+            <span class="activity-icon">🔤</span>
+            <h3>Sopas de letras</h3>
+            <p>Encuentra palabras escondidas temáticas que pondrán a prueba tu conocimiento.</p>
+          </article>
+          <article class="activity-card">
+            <span class="activity-icon">🗺️</span>
+            <h3>Laberintos</h3>
+            <p>Puzzles de navegación ambientados en universos de videojuegos, series y más.</p>
+          </article>
+          <article class="activity-card">
+            <span class="activity-icon">🏆</span>
+            <h3>Trivias y concursos</h3>
+            <p>Competencias con ranking y premios para los más conocedores del fandom.</p>
+          </article>
+          <article class="activity-card">
+            <span class="activity-icon">✍️</span>
+            <h3>Concursos creativos</h3>
+            <p>Dibujo, escritura y edición para que la comunidad muestre su talento.</p>
+          </article>
+          <article class="activity-card">
+            <span class="activity-icon">📖</span>
+            <h3>Historias promo</h3>
+            <p>Narrativas originales que enriquecen la experiencia de nuestros puzzles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fandoms" class="content-section reveal" aria-labelledby="fandoms-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="fandoms-title">NUESTROS FANDOMS</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">
+          Nos especializamos en media popular: videojuegos, series, películas y todo lo que pueda
+          convertirse en un buen puzzle.
+        </p>
+
+        <div class="fandoms-grid">
+          <article class="fandom-badge"><span class="fandom-icon">❤️</span><span>Undertale</span></article>
+          <article class="fandom-badge"><span class="fandom-icon">🖤</span><span>Deltarune</span></article>
+          <article class="fandom-badge"><span class="fandom-icon">🐻</span><span>FNAF</span></article>
+          <article class="fandom-badge"><span class="fandom-icon">🔫</span><span>Team Fortress 2</span></article>
+          <article class="fandom-badge"><span class="fandom-icon">🎵</span><span>Friday Night Funkin'</span></article>
+          <article class="fandom-badge"><span class="fandom-icon">📚</span><span>Literatura y escritura</span></article>
+          <article class="fandom-badge"><span class="fandom-icon">🎮</span><span>Videojuegos</span></article>
+          <article class="fandom-badge"><span class="fandom-icon">✨</span><span>¡Y más!</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia" class="content-section content-section-alt reveal" aria-labelledby="historia-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="historia-title">NUESTRA HISTORIA</h2>
+        <div class="section-divider"></div>
+
+        <div class="history-timeline">
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>Los orígenes: Amino</h3>
+            <p>
+              Puzzle Lovers nació en la plataforma Amino, donde subíamos regularmente quizzes de
+              Undertale y Deltarune. Anteriormente publicábamos principalmente en Undertale Español Amino,
+              Friday Night Funkin' Amino y Literatura y Escritura Amino, entre otras comunidades.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>Expansión multifandom</h3>
+            <p>
+              El equipo creció y con él la variedad de contenido. Comenzamos a cubrir más universos:
+              FNAF, Friday Night Funkin', Literatura y Escritura, y muchos más. Adoptamos el sistema de
+              "líneas de quizzes" para organizar cada fandom.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>Nuevas plataformas</h3>
+            <p>
+              Tras el cierre de Amino, Puzzle Lovers siguió adelante expandiéndose a nuevas plataformas.
+              Actualmente utilizamos diversas plataformas para publicar nuestras actividades, tales como
+              Educaplay y TikTok.
+            </p>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-dot"></div>
+            <h3>Puzzle Lovers hoy</h3>
+            <p>
+              Seguimos activos y creciendo, con 4 miembros llevando la batuta. El espíritu es el mismo
+              de siempre: crear puzzles divertidos, justos y de calidad para todos los usuarios.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipo" class="content-section reveal" aria-labelledby="equipo-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="equipo-title">EL EQUIPO</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">
+          Conoce a los Puzzle Lovers actuales. Cada miembro tiene su propio apodo dentro del team,
+          una tradición desde nuestros inicios.
+        </p>
+
+        <div class="team-grid">
+          <article class="member-card">
+            <div class="member-avatar">🔮</div>
+            <div class="member-name">Peko</div>
+            <div class="member-title">The Puzzle Oracle</div>
+            <div class="member-gen">⭐ Líder · Riddle Council</div>
+            <p class="member-desc">
+              <em>"Oh, sabio oráculo. Ayudaste a un mundo a levantarse de sus cenizas..."</em>
+              Tranquilo pero entusiasmado ante cualquier reto. Con su creatividad y dedicación mantiene
+              todo en orden. Bajo su guía se han creado desafíos que aún esperan ser mostrados.
+            </p>
+          </article>
+
+          <article class="member-card">
+            <div class="member-avatar">🎼</div>
+            <div class="member-name">Ali</div>
+            <div class="member-title">The Rhythm Bishop</div>
+            <div class="member-gen">⚙️ Co-líder · Riddle Council</div>
+            <p class="member-desc">
+              <em>"A tu cuidado, nuestro destino nos mueve. Querido obispo, guía el paso del mañana."</em>
+              Paciente, inteligente y con grandes ideas. Participa en todo: desde la concepción de los
+              quizzes hasta su decoración final.
+            </p>
+          </article>
+
+          <article class="member-card">
+            <div class="member-avatar">💜</div>
+            <div class="member-name">Novus</div>
+            <div class="member-title">The Golden Angel</div>
+            <div class="member-gen">✨ Co-líder · Riddle Council</div>
+            <p class="member-desc">
+              <em>"Donde otros ven el caos, tú ves el lienzo. Ángel dorado, tu trazo guía lo que aún no tiene forma."</em>
+              Es la mente creativa, y nunca para de generar ideas para historias y nuevos puzzles.
+            </p>
+          </article>
+
+          <article class="member-card">
+            <div class="member-avatar">🐦‍⬛</div>
+            <div class="member-name">Fan</div>
+            <div class="member-title">The Melancholic Raven</div>
+            <div class="member-gen">🧩 Co-líder · Riddle Council</div>
+            <p class="member-desc">
+              <em>"En el silencio del cuervo yace la pregunta que nadie se atrevió a formular."</em>
+              El más fiel devoto de Team Fortress 2 dentro del equipo. Si hay un quiz de TF2, ya saben quién lo hizo.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trabajos" class="content-section content-section-alt reveal" aria-labelledby="trabajos-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="trabajos-title">TRABAJOS RECIENTES</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">
+          Una selección de nuestros puzzles y actividades más recientes. Por ahora, las tarjetas de Educaplay
+          llevan al perfil oficial del team y TikTok queda pendiente hasta que tengamos el enlace final.
+        </p>
+
+        <div class="works-grid">
+          <a
+            class="work-card"
+            href="https://es.educaplay.com/usuario/12355022-puzzle/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Abrir perfil de Puzzle Lovers en Educaplay"
+          >
+            <span class="work-tag tag-educa">EDUCAPLAY</span>
+            <h3>A Monstruous Puzzle: Origins</h3>
+            <p>¿Cuánto sabes del juego original de Undertale? Lore, personajes, diálogos y escenarios en 25 preguntas.</p>
+            <div class="work-meta">Ver perfil en Educaplay ↗</div>
+          </a>
+
+          <a
+            class="work-card"
+            href="https://es.educaplay.com/usuario/12355022-puzzle/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Abrir perfil de Puzzle Lovers en Educaplay"
+          >
+            <span class="work-tag tag-educa">EDUCAPLAY</span>
+            <h3>A Multiversal Puzzle: AU Edition</h3>
+            <p>Trivia dedicada a los AUs y fangames del universo Undertale y Deltarune. Para los más fans de fans.</p>
+            <div class="work-meta">Ver perfil en Educaplay ↗</div>
+          </a>
+
+          <a
+            class="work-card"
+            href="https://es.educaplay.com/usuario/12355022-puzzle/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Abrir perfil de Puzzle Lovers en Educaplay"
+          >
+            <span class="work-tag tag-educa">EDUCAPLAY</span>
+            <h3>Funkin' Word Search</h3>
+            <p>Encuentra todos los personajes del rhythm game más viral en esta sopa de letras temática.</p>
+            <div class="work-meta">Ver perfil en Educaplay ↗</div>
+          </a>
+
+          <article
+            class="work-card work-card-pending"
+            aria-label="Trabajo de TikTok pendiente"
+          >
+            <span class="work-tag tag-tiktok">TIKTOK</span>
+            <h3>Literatura: The Writer's Puzzle</h3>
+            <p>Concurso de escritura y trivia literaria. Premios para los 4 primeros lugares.</p>
+            <div class="work-meta">Enlace pendiente</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="puzzle-engine" class="content-section reveal" aria-labelledby="engine-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="engine-title">PUZZLE ENGINE</h2>
+        <div class="section-divider"></div>
+        <p class="section-intro">
+          Ya quedó montado como módulo aparte del sitio: editor visual para el team y reproductor interactivo
+          para los jugadores, con soporte preparado para Supabase y fallback local.
+        </p>
+
+        <div class="engine-grid">
+          <article class="engine-card">
+            <span class="engine-icon">🛠️</span>
+            <h3>Editor visual</h3>
+            <p>Crea actividades con preguntas, opciones, respuestas correctas, videos de YouTube y audios MP3.</p>
+          </article>
+          <article class="engine-card">
+            <span class="engine-icon">🎮</span>
+            <h3>Reproductor</h3>
+            <p>Carga actividades por ID, controla tiempo, vidas, validación de respuestas y cierre con ranking.</p>
+          </article>
+          <article class="engine-card">
+            <span class="engine-icon">☁️</span>
+            <h3>Cloud-ready</h3>
+            <p>Preparado para Supabase, pero usable desde ya en local mientras terminas de configurar la nube.</p>
+          </article>
+        </div>
+
+        <div class="engine-actions">
+          <a href="engine/index.html" class="btn-primary">Abrir Puzzle Engine</a>
+          <a href="engine/supabase-schema.sql" class="btn-secondary">Ver esquema SQL</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="content-section content-section-alt reveal" aria-labelledby="faq-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="faq-title">PREGUNTAS FRECUENTES</h2>
+        <div class="section-divider"></div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Qué es Puzzle Lovers?</span>
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              Puzzle Lovers es un equipo multifandom de creación de contenido enfocado en quizzes, trivias,
+              sopas de letras, laberintos y concursos basados en media popular como videojuegos, series y películas.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Dónde publican su contenido?</span>
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              Actualmente publicamos en plataformas como Educaplay y TikTok. Anteriormente residíamos en Amino,
+              donde publicábamos en comunidades como Undertale Español Amino, Friday Night Funkin' Amino y
+              Literatura y Escritura Amino, entre otras.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Puzzle Engine ya está conectado a Supabase?</span>
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              Las credenciales públicas ya están cargadas. El paso que falta en tu proyecto es ejecutar el esquema SQL para crear tablas, políticas y el bucket de audio.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Los trabajos ya redirigen?</span>
+              <span class="faq-arrow">▼</span>
+            </summary>
+            <div class="faq-answer">
+              Sí, pero parcialmente. Educaplay ya abre el perfil oficial del team; TikTok sigue pendiente hasta que tengamos su enlace final.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="content-section reveal" aria-labelledby="contacto-title">
+      <div class="section-inner">
+        <h2 class="section-title" id="contacto-title">CONTACTO</h2>
+        <div class="section-divider"></div>
+
+        <div class="contact-box">
+          <p>
+            ¿Quieres jugar nuestros puzzles, proponer un tema o explorar el motor nuevo?<br>
+            ¡Escríbenos directamente!
+          </p>
+          <div class="contact-actions">
+            <a href="mailto:PuzzleLoversOficial@gmail.com" class="contact-email">📧 PuzzleLoversOficial@gmail.com</a>
+            <a href="engine/index.html" class="btn-secondary">Entrar a Puzzle Engine</a>
+          </div>
+          <div class="contact-tagline">¡MAY THE PUZZLES BE WITH YOU!</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year">2026</span> Puzzle Lovers Team · <span>¡May the Puzzles be with you!</span> 🧩</p>
+    <p class="footer-subline">Hecho con amor por el team · Versión 3.1</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
